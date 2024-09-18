@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Number of Items</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #495057;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #212529;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        form {
+            margin: 0;
+        }
+        form p {
+            margin: 15px 0;
+            font-size: 1rem;
+            color: #495057;
+        }
+        button {
+            background-color: #138D75;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+            display: block;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0E6251;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How many items do you want to add?</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
