@@ -3,10 +3,10 @@
 ## Grocery Recommendation System
 A system that recommends groceries by identifying related products based on user input and preferences.
 
-
+### Check it out live
+[www.grocerypicks.onrender.com](https://grocerypicks.onrender.com/)
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [![Python][Python.img]][Python-url]
 * [![Django][Django.img]][Django-url]
