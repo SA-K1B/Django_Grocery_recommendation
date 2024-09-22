@@ -18,7 +18,7 @@
         }
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
             background: #ffffff;
             padding: 30px;
             border-radius: 10px;
@@ -27,9 +27,35 @@
         }
         h1 {
             font-size: 2rem;
-            color: #212529;
+            color: #056e69;
             margin-bottom: 20px;
             text-align: center;
+        }
+        h2 {
+            font-size: 1.5rem;
+            color: #056e69;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        /* Flexbox to display items side by side */
+        ul.top-items {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        ul.top-items li {
+            background-color: #f4f4f9;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #138D75;
+            border-radius: 5px;
+            color: #117A65;
+            text-align: center;
+            min-width: 120px;
+            flex: 1;
         }
         form {
             margin: 0;
@@ -37,7 +63,7 @@
         form p {
             margin: 15px 0;
             font-size: 1rem;
-            color: #138D75;
+            color: #117A65;
         }
         button {
             background-color: #138D75;
@@ -58,7 +84,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>Enter your {{ num_items }} items</h1>
+        <!-- Display Top Items -->
+        <h2>Top Items</h2>
+        <ul class="top-items">
+            {% for item in top_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Input Section -->
+        {% if num_items == 1 %}
+            <h1>Enter an Item</h1>
+        {% else %}
+            <h1>Enter {{ num_items }} Items</h1>
+        {% endif %}
+        
         <form method="POST" action="{% url 'item_input' num_items %}">
             {% csrf_token %}
             {{ form.as_p }}

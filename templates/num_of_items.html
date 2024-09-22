@@ -26,10 +26,11 @@
             margin: 0 auto;
         }
         h1 {
-            font-size: 2rem;
-            color: #212529;
+            font-size: 1.5rem; /* Adjusted font size */
+            color: #056e69;
             margin-bottom: 20px;
             text-align: center;
+            white-space: nowrap; /* Prevent text from wrapping */
         }
         form {
             margin: 0;
@@ -37,7 +38,7 @@
         form p {
             margin: 15px 0;
             font-size: 1rem;
-            color: #495057;
+            color: #117A65;
         }
         button {
             background-color: #138D75;
@@ -58,7 +59,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>How many items do you want to add?</h1>
+        <h1>Number of Items You Want to Add?</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}

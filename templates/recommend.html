@@ -26,27 +26,40 @@
         }
         h2 {
             font-size: 1.5rem;
-            color: #212529;
+            color: #056e69;
             margin-bottom: 20px;
             text-align: center;
         }
-        p {
-            margin: 10px 0;
-            font-size: 1rem;
-            color: #080202; /* Blue color to highlight items */
-            background-color: #f1f5f9; /* Light background for items */
+        /* Flexbox to display items side by side */
+        ul.recommended-items {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        ul.recommended-items li {
+            background-color: #f4f4f9;
             padding: 10px;
+            margin: 5px;
+            border: 1px solid #138D75;
             border-radius: 5px;
+            color: #0a6855;
             text-align: center;
+            min-width: 120px;
+            flex: 1;
         }
     </style>
 </head>
 <body>
     <div>
-        <h2>Recommended Items:</h2>
-        {% for item in items %}
-           <p>{{ item }}</p>
-        {% endfor %}
+        <h2>Recommended Items</h2>
+        <ul class="recommended-items">
+            {% for item in items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

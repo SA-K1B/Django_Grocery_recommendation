@@ -4,7 +4,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: django-grocery
+    image: sakib059/django-grocery:latest
     container_name: grocery-container_name
     ports:
       - "8000:3000"
