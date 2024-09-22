@@ -14,8 +14,8 @@ jobs:
            - name: Dockerhub login
              uses: docker/login-action@v3
              with:
-                 username: ${{secrets.username}}
-                 password: ${{secrets.password}}  
+                 username: ${{secrets.USERNAME}}
+                 password: ${{secrets.TOKEN}}  
     push:
         runs-on: ubuntu-latest
         steps:
