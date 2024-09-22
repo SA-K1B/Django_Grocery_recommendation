@@ -5,10 +5,6 @@
 A system that recommends groceries by identifying related products based on user input and preferences.
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 ### Built With
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
@@ -22,14 +18,15 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![Render][Render.img]][Render-url] 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
 ## Description
 A grocery recommendation system that uses the Apriori algorithm to suggest related items based on user input. The API is built with Django, containerized using Docker, and deployed on Render. GitHub Actions automates CI/CD to streamline the deployment process.
+### Machine Learning Model Link
 
+[github.com/SA-K1B/Grocery_recommendation_model](https://github.com/SA-K1B/Grocery_recommendation_model)
 
 ### Installation with Docker
 
