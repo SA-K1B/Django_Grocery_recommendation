@@ -1,0 +1,27 @@
+name: Image push and deploy
+on:
+    push:
+        branches:
+            - master
+jobs:
+    setup:
+        runs-on: ubuntu-latest
+        steps:
+           - name: Get code
+             uses: actions/checkout@v4       
+           - name: Set up docker Buildx
+             uses: docker/setup-buildx-action@v3
+           - name: Dockerhub login
+             uses: docker/login-action@v3
+             with:
+                 username: ${{secrets.username}}
+                 password: ${{secrets.password}}  
+    push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: build and push
+              uses: docker/build-push-action@v6
+              with:
+                push: true
+                tags: sakib059/django-grocery:latest           
+
