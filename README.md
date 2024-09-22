@@ -2,6 +2,8 @@
 
 ## Grocery Recommendation System
 A system that recommends groceries by identifying related products based on user input and preferences.
+### Check it out live
+[www.grocerypicks.onrender.com](https://grocerypicks.onrender.com/)
 
 
 ### Built With
