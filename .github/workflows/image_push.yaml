@@ -12,6 +12,7 @@ jobs:
            - name: Set up docker Buildx
              uses: docker/setup-buildx-action@v3 
     push:
+        needs: setup
         runs-on: ubuntu-latest
         steps:
             - name: Dockerhub login
@@ -24,4 +25,14 @@ jobs:
               with:
                 push: true
                 tags: sakib059/django-grocery:latest           
+    deploy:
+        needs: push
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deployment
+              uses: johnbeynon/render-deploy-action@v0.0.8
+              with:
+                service-id: ${{ secrets.RENDER_SERVICE_ID }}
+                api-key: ${{ secrets.RENDER_SERVICE_ID }}
 
+    
