@@ -1,9 +1,8 @@
 name: Image push and deploy
 on:
-  pull_request
-    # push:
-    #     branches:
-    #         - master
+    push:
+        branches:
+            - master
 jobs:
     setup:
         runs-on: ubuntu-latest
