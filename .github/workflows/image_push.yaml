@@ -24,19 +24,18 @@ jobs:
               with:
                  username: ${{secrets.USERNAME}}
                  password: ${{secrets.TOKEN}} 
-            - name: build and push
-              uses: docker/build-push-action@v6
+            - name: Build and push using Docker Compose
+              run: |
+                     docker compose -f docker-compose.yaml build
+                     docker compose -f docker-compose.yaml push           
+    deploy:
+        needs: setup
+        runs-on: ubuntu-latest
+        steps:
+            - name: Deployment
+              uses: johnbeynon/render-deploy-action@v0.0.8
               with:
-                push: true
-                tags: sakib059/django-grocery:latest           
-    # deploy:
-    #     needs: setup
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Deployment
-    #           uses: johnbeynon/render-deploy-action@v0.0.8
-    #           with:
-    #             service-id: ${{ secrets.RENDER_SERVICE_ID }}
-    #             api-key: ${{ secrets.RENDER_API_KEY }}
+                service-id: ${{ secrets.RENDER_SERVICE_ID }}
+                api-key: ${{ secrets.RENDER_API_KEY }}
 
     
