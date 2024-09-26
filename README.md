@@ -37,8 +37,12 @@ A grocery recommendation system that uses the Apriori algorithm to suggest relat
    ```
 2. Build Image 
    ```sh
-   docker compose up --build
+   docker compose --build
    ```
+3. Run a container
+   ```sh
+   docker compose up
+   ```   
 ### Installation without Docker
 
 
@@ -59,7 +63,7 @@ A grocery recommendation system that uses the Apriori algorithm to suggest relat
      ```
 3.  Upgrade pip
     ```sh
-     myenv\Scripts\activate
+     pip install --upgrade pip
 
      ```
 4.  Install the required packages
