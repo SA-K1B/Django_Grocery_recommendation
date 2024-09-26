@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
-RUN python manage.py collectstatic --noinput
 COPY ./ .
+RUN python manage.py collectstatic --noinput
 EXPOSE 3000
 # CMD [ "python","manage.py","runserver","0.0.0.0:3000" ]
