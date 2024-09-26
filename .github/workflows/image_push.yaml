@@ -13,6 +13,10 @@ jobs:
               uses: actions/setup-python@v4
               with:
                 python-version: '3.11'    
+            - name: testing
+              run: python manage.py test
+            - name: lint test
+              run: flake8 .  
             - name: Check Docker and Docker Compose versions
               run: |
                       docker --version
@@ -24,12 +28,11 @@ jobs:
               with:
                  username: ${{secrets.USERNAME}}
                  password: ${{secrets.TOKEN}} 
-            - name: Build and tag using Docker Compose
+            - name: Build and push
               run: |
-                     docker compose -f docker-compose.yaml build
-                     docker tag sakib059/django-grocery:latest sakib059/django-grocery:${{ github.sha }}
-                     docker tag sakib059/django-grocery:${{ github.sha }} sakib059/django-grocery:latest
-                     docker compose -f docker-compose.yaml push
+                docker build -t sakib059/django-grocery:latest .
+                docker tag sakib059/django-grocery:latest sakib059/django-grocery:latest
+                docker push sakib059/django-grocery:latest
             - name: View all the images
               run: docker images                    
     deploy:
