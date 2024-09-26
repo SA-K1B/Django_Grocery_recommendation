@@ -10,5 +10,5 @@ services:
       - "8000:3000"
     volumes:
       - ./:/django
-    command: python manage.py runserver 0.0.0.0:3000
+    command: ["gunicorn","groceryRecommendation.wsgi:application","--bind","0.0.0.0:3000"]
 

@@ -25,19 +25,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
         }
-        h1 {
-            font-size: 2rem;
-            color: #056e69;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        h2 {
-            font-size: 1.5rem;
+        h1, h2 { /* Add this line to make h1 and h2 consistent */
+            font-size: 1.5rem; /* Match the size of h2 */
             color: #056e69;
             margin-bottom: 10px;
             text-align: center;
         }
-        /* Flexbox to display items side by side */
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px; /* Adjusted margin for spacing */
+        }
         ul.top-items {
             display: flex;
             flex-wrap: wrap;
@@ -84,7 +81,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Display Top Items -->
         <h2>Top Items</h2>
         <ul class="top-items">
             {% for item in top_items %}
@@ -92,16 +88,22 @@
             {% endfor %}
         </ul>
 
-        <!-- Input Section -->
-        {% if num_items == 1 %}
+        {% if items_num == 1 %}
             <h1>Enter an Item</h1>
         {% else %}
-            <h1>Enter {{ num_items }} Items</h1>
+            <h1>Enter {{ items_num }} Items</h1>
         {% endif %}
-        
-        <form method="POST" action="{% url 'item_input' num_items %}">
+
+        <form method="POST" action="{% url 'item_input' items_num %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            <!-- Use 'forloop' to generate input fields -->
+            {% for i in num_items %}
+                <p>
+                    <label for="item_{{ i }}">Item {{ i }}</label>
+                    <input type="text" id="item_{{ i }}" name="item_{{ i }}" maxlength="100" required>
+                </p>
+            {% endfor %}
+            
             <button type="submit">Submit Items</button>
         </form>
     </div>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Grocery Picks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9; /* Light background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #495057; /* Text color */
+            text-align: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff; /* White background for the container */
+            padding: 30px; /* Padding inside the container */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        h1 {
+            font-size: 2rem; /* Size of the main heading */
+            color: #056e69; /* Color of the heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        .description {
+            font-size: 1.1rem; /* Slightly smaller font size */
+            color: #117A65; /* Color consistent with your theme */
+            margin-bottom: 20px; /* Space below the paragraph */
+            line-height: 1.6; /* Better line spacing for readability */
+            background-color: #f4f4f9; /* Light background to highlight the text */
+            padding: 15px; /* Padding around the text */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        a {
+            display: inline-block; /* Inline block for button style */
+            background-color: #138D75; /* Button color */
+            color: white; /* Text color on the button */
+            padding: 10px 20px; /* Padding inside the button */
+            border-radius: 6px; /* Rounded corners for the button */
+            text-decoration: none; /* No underline on the link */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        a:hover {
+            background-color: #0E6251; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Grocery Picks</h1>
+        <p class="description">
+            Grocery Picks is a recommendation system that suggests grocery items. Enter your selected items, and the system will recommend related products.
+        </p>
+        <a href="{% url 'num_items' %}">Get Started</a>
+    </div>
+</body>
+</html>

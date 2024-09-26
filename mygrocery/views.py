@@ -1,59 +1,58 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import pickle
-from django.http import JsonResponse
 import os
-import pandas as pd
 from django.conf import settings
 from .predictClass import predictClass
-from .forms import NumItemsForm,generate_items_form
-def get_num_items(request):
-    if request.method == 'POST':
-        form = NumItemsForm(request.POST)
-        if form.is_valid():
-            num_items = form.cleaned_data['num_items']
-            ItemsForm = generate_items_form(int(num_items))
-            # print(num_items)
-            form1 = ItemsForm()
-            # print(form1)
-            pkl_file_path1 = os.path.join(settings.BASE_DIR, 'model', 'top_items.pkl')
-            top_items = pickle.load(open(pkl_file_path1,'rb'))
-            cap_items=[]
-            for i in top_items:
-              cap_items.append(i.capitalize())
-            # print(top_items)
-            return render(request, 'item_input.html', {'form': form1, 'num_items': num_items,'top_items':cap_items})
-    else:
-        form = NumItemsForm()
-        return render(request, 'num_of_items.html', {'form': form})
 
-def get_items(request, num_items):
-    if request.method == 'POST':
-        ItemsForm = generate_items_form(int(num_items))
-        form = ItemsForm(request.POST)
-        if form.is_valid():
-           items = [form.cleaned_data[f'item_{i+1}'] for i in range(int(num_items))]
-           pkl_file_path2 = os.path.join(settings.BASE_DIR, 'model', 'all_items.pkl')
-           all_items = pickle.load(open(pkl_file_path2,'rb'))
-           pkl_file_path = os.path.join(settings.BASE_DIR, 'model', 'rules.pkl')
-           rules = pickle.load(open(pkl_file_path,'rb'))
-           obj = predictClass(rules)
-        #    print(type(items))
-           lowercase_items=[]
-           for i in items:
-             lowercase_items.append(i.lower())
-           for i in lowercase_items:
-            if i not in all_items:
-                return render(request,'notfound.html')  
-           item_set = set(lowercase_items)
-        #    print(item_set)
-           result = obj.predict(item_set)
-           cap_items=[]
-           for i in result:
-             cap_items.append(i.capitalize())
-           context = {
-            'items': cap_items
-           }
-           return render(request,'recommend.html',context)
-    # return render(request, 'inputapp/item_input.html', {'form': form, 'num_items': num_items})
-# Create your views here.
+
+def home(request):
+    return render(request, "home.html")
+
+
+def get_num_items(request):
+    if request.method == "POST":
+        num_items = request.POST.get("num_items")
+        if num_items and int(num_items) > 0:
+            # Load top_items to display them on the item input page
+            pkl_file_path1 = os.path.join(settings.BASE_DIR, "model", "top_items.pkl")
+            top_items = pickle.load(open(pkl_file_path1, "rb"))
+            cap_items = [i.capitalize() for i in top_items]
+            num_items = int(num_items)
+            return render(
+                request,
+                "item_input.html",
+                {
+                    "num_items": range(1, num_items + 1),
+                    "items_num": num_items,
+                    "top_items": cap_items,
+                },
+            )
+    return render(request, "num_of_items.html")
+
+
+def get_items(request, items_num):
+    if request.method == "POST":
+        # Collect the item names from the POST data
+        items = [request.POST.get(f"item_{i+1}") for i in range(int(items_num))]
+        items = [item.lower() for item in items]
+
+        # Load necessary data for prediction
+        pkl_file_path2 = os.path.join(settings.BASE_DIR, "model", "all_items.pkl")
+        all_items = pickle.load(open(pkl_file_path2, "rb"))
+        pkl_file_path = os.path.join(settings.BASE_DIR, "model", "rules.pkl")
+        rules = pickle.load(open(pkl_file_path, "rb"))
+
+        obj = predictClass(rules)
+
+        # Check if all items are valid
+        for item in items:
+            if item not in all_items:
+                return render(request, "notfound.html")
+
+        # Generate recommendations based on the input items
+        item_set = set(items)
+        result = obj.predict(item_set)
+        cap_items = [i.capitalize() for i in result]
+
+        return render(request, "recommend.html", {"items": cap_items})
