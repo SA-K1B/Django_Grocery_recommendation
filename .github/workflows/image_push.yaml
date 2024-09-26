@@ -24,10 +24,12 @@ jobs:
               with:
                  username: ${{secrets.USERNAME}}
                  password: ${{secrets.TOKEN}} 
-            - name: Build and push using Docker Compose
+            - name: Build and tag using Docker Compose
               run: |
                      docker compose -f docker-compose.yaml build
+                     docker tag sakib059/django-grocery:latest sakib059/django-grocery:${{ github.sha }}
                      docker compose -f docker-compose.yaml push
+                     docker push sakib059/django-grocery:${{ github.sha }}
             - name: View all the images
               run: docker images                    
     deploy:
