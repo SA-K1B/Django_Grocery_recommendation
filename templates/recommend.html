@@ -54,7 +54,14 @@
 </head>
 <body>
     <div>
-        <h2>Recommended Items</h2>
+        <h2>
+            {% if items|length > 1 %}
+                Recommended Items
+            {% else %}
+               Recommended Item
+            {% endif %}
+        </h2>
+        
         <ul class="recommended-items">
             {% for item in items %}
                 <li>{{ item }}</li>
