@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-cue%l2%fr5^7-r0yjj-zsb_l!5x7&4(%va=-b(1(mwrsq%2*4z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["grocerypicks.onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["grocerypicks.onrender.com", "localhost", "127.0.0.1","0.0.0.0"]
 
 CSRF_TRUSTED_ORIGINS = ["https://grocerypicks.onrender.com"]
 # Application definition
