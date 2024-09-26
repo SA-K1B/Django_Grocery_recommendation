@@ -8,4 +8,3 @@ RUN pip install -r requirements.txt
 COPY ./ .
 RUN python manage.py collectstatic --noinput
 EXPOSE 3000
-# CMD [ "python","manage.py","runserver","0.0.0.0:3000" ]
