@@ -1,12 +1,13 @@
 
 
+<!-- ABOUT THE PROJECT -->
 ## Grocery Recommendation System
 A system that recommends groceries by identifying related products based on user input and preferences.
 
-### Check it out live
-[www.grocerypicks.onrender.com](https://grocerypicks.onrender.com/)
+
 ### Built With
 
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [![Python][Python.img]][Python-url]
 * [![Django][Django.img]][Django-url]
@@ -20,6 +21,7 @@ A system that recommends groceries by identifying related products based on user
 
 
 
+<!-- GETTING STARTED -->
 ## Description
 A grocery recommendation system that uses the Apriori algorithm to suggest related items based on user input. The API is built with Django, containerized using Docker, and deployed on Render. GitHub Actions automates CI/CD to streamline the deployment process.
 ### Machine Learning Model Link
@@ -37,6 +39,51 @@ A grocery recommendation system that uses the Apriori algorithm to suggest relat
    ```sh
    docker compose up --build
    ```
+### Installation without Docker
+
+
+1.  Set up a virtual environment
+    ```sh
+    python -m venv myenv
+    ```
+2. Activate the virtual environment  
+  
+    On macOS/Linux
+    ```sh
+    source myenv/bin/activate
+    ```
+     On windows
+     ```sh
+     myenv\Scripts\activate
+
+     ```
+3.  Upgrade pip
+    ```sh
+     myenv\Scripts\activate
+
+     ```
+4.  Install the required packages
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+5.  Run database migration
+    ```sh
+    python manage.py migrate
+
+    ```
+6. Collect static files
+
+   ```sh
+   python manage.py collectstatic --noinput
+   ```
+7. Run the development server
+
+   ```sh
+   python manage.py runserver
+   ```
+
+
 Now, a HTTP server will start up, listening on port 8000. You will see the app running at https://localhost:8000.
 
 
