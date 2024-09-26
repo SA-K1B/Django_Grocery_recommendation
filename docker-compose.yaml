@@ -10,5 +10,6 @@ services:
       - "8000:3000"
     volumes:
       - ./:/django
-    command: ["gunicorn","groceryRecommendation.wsgi:application","--bind","0.0.0.0:3000"]
+    command: >
+      sh -c "gunicorn groceryRecommendation.wsgi:application --bind 0.0.0.0:${PORT:-3000}"
 
