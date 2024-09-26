@@ -27,7 +27,9 @@ jobs:
             - name: Build and push using Docker Compose
               run: |
                      docker compose -f docker-compose.yaml build
-                     docker compose -f docker-compose.yaml push           
+                     docker compose -f docker-compose.yaml push
+            - name: View all the images
+              run: docker images                    
     deploy:
         needs: setup
         runs-on: ubuntu-latest
