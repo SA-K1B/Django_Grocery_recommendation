@@ -1,10 +1,10 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## Grocery Recommendation System 
+## 🚀 Grocery Recommendation System 
 A system that recommends groceries by identifying related products based on user input and preferences.
 
-
+Check it out live : [grocerypicks.onrender.com](https://grocerypicks.onrender.com/)
 
 <!-- GETTING STARTED -->
 <!--## Description-->
@@ -36,9 +36,11 @@ A system that recommends groceries by identifying related products based on user
 * [![CSS][CSS.img]][CSS-url]
 * [![Render][Render.img]][Render-url] 
 
+### ⚡🧠️ Machine Learning Model Link
 
+[github.com/SA-K1B/Grocery_recommendation_model](https://github.com/SA-K1B/Grocery_recommendation_model)
 
-### Installation with Docker
+### ⚙️ Installation with Docker
 
 
 1. Clone the repo
@@ -49,15 +51,12 @@ A system that recommends groceries by identifying related products based on user
    ```sh
    docker compose up --build
    ```
-### Installation without Docker
-
-
+### ⚙️ Installation without Docker
 1.  Set up a virtual environment
     ```sh
     python -m venv myenv
     ```
 2. Activate the virtual environment  
-  
     On macOS/Linux
     ```sh
     source myenv/bin/activate
@@ -73,7 +72,6 @@ A system that recommends groceries by identifying related products based on user
 
      ```
 4.  Install the required packages
-
     ```sh
     pip install -r requirements.txt
     ```
@@ -83,19 +81,17 @@ A system that recommends groceries by identifying related products based on user
 
     ```
 6. Collect static files
-
    ```sh
    python manage.py collectstatic --noinput
    ```
 7. Run the development server
-
    ```sh
    python manage.py runserver
    ```
 
 
 Now, a HTTP server will start up, listening on port 8000. You will see the app running at https://localhost:8000.
-### CI/CD Workflow
+### 🔄 CI/CD Workflow
 
 
 - Every push triggers automated unit tests to validate functionality.
@@ -114,9 +110,7 @@ A Python package for serving static files directly from web application. While D
 [![Gunicorn][Gunicorn.img]][Gunicorn-url]
 
 Gunicorn is a WSGI compliant web server for Python Applications that receives requests sent to the Web Server from a Client and forwards them onto the Python applications or Web Frameworks.
-### Machine Learning Model Link
 
-[github.com/SA-K1B/Grocery_recommendation_model](https://github.com/SA-K1B/Grocery_recommendation_model)
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
