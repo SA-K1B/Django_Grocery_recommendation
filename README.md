@@ -56,7 +56,8 @@ Check it out live : [grocerypicks.onrender.com](https://grocerypicks.onrender.co
     ```sh
     python -m venv myenv
     ```
-2. Activate the virtual environment  
+2. Activate the virtual environment
+     
     On macOS/Linux
     ```sh
     source myenv/bin/activate
@@ -64,12 +65,10 @@ Check it out live : [grocerypicks.onrender.com](https://grocerypicks.onrender.co
      On windows
      ```sh
      myenv\Scripts\activate
-
      ```
 3.  Upgrade pip
     ```sh
-     myenv\Scripts\activate
-
+     python -m pip install --upgrade pip
      ```
 4.  Install the required packages
     ```sh
